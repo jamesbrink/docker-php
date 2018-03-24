@@ -1,3 +1,5 @@
+[Travis CI:  
+![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php)
 # Docker PHP container with Apache
 Docker PHP container with Apache (Very similar to official php image but added Apache server)
 
