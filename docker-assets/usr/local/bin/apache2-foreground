@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Starting Apache"
+httpd -D FOREGROUND &
+pid="$!"
+trap "echo 'Stopping Apache - pid: $pid'; kill -SIGTERM $pid" SIGINT SIGTERM
+
+# Wait for process to end.
+while kill -0 $pid > /dev/null 2>&1; do
+    wait
+done
+echo "Exiting"
