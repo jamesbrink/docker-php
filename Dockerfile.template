@@ -1,24 +1,30 @@
-# PHP 7.1 with Apache
+# PHP %s with Apache
 #
-# VERSION 7.1
+# VERSION %s
 
 FROM alpine:3.7
 LABEL maintainer="James Brink, brink.james@gmail.com"
-LABEL decription="PHP 7.1 with Apache"
-LABEL version="7.1"
+LABEL decription="PHP %s with Apache"
+LABEL version="%s"
 
 COPY docker-assets/ /
 
 ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
     PHP_CPPFLAGS="$PHP_CFLAGS" \
     PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
-    GPG_KEYS="A917B1ECDA84AEC2B568FED6F50ABC807BD5DCD0 528995BFEDFBA7191D46839EF9BA0ADA31CBD89E 1729F83938DA44E27BA0F4D3DBDB397470D12172" \
-    PHP_VERSION="7.1.15" \
-    PHP_URL="https://secure.php.net/get/php-7.1.15.tar.xz/from/this/mirror" \
-    PHP_ASC_URL="https://secure.php.net/get/php-7.1.15.tar.xz.asc/from/this/mirror" \
-    PHP_SHA256="0e17192fb43532e4ebaa190ecec9c7e59deea7dadb7dab67b19c2081a68bd817" \
+    GPG_KEYS="1A4E8B7277C42E53DBA9C7B9BCAA30EA9C0D5763 \
+              6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3 \
+              A917B1ECDA84AEC2B568FED6F50ABC807BD5DCD0 \
+              528995BFEDFBA7191D46839EF9BA0ADA31CBD89E \
+              1729F83938DA44E27BA0F4D3DBDB397470D12172 \
+              B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F" \
+    PHP_VERSION="%s" \
+    PHP_URL="https://secure.php.net/get/php-%s.tar.xz/from/this/mirror" \
+    PHP_ASC_URL="https://secure.php.net/get/php-%s.tar.xz.asc/from/this/mirror" \
+    PHP_SHA256="%s" \
     PHP_MD5="" \
-    PHP_INI_DIR="/usr/local/etc/php"
+    PHP_INI_DIR="/usr/local/etc/php" \
+    APACHE_LOG_LEVEL="warn"
 
 # persistent / runtime deps
 RUN set -xe; \
@@ -91,8 +97,8 @@ RUN set -xe; \
     cd /; \
     docker-php-source delete; \
     runDeps="$( \
-    scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
-      	| tr ',' '\n' \
+    scanelf --needed --nobanner --format '%%n#p' --recursive /usr/local \
+      	| tr ',' '\\n' \
       	| sort -u \
       	| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
     )"; \

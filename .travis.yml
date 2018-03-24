@@ -2,6 +2,6 @@ language: bash
 services: docker
 
 script:
-  - docker build -t jamesbrink/php .
+  - bash -c "make all"
   - docker images
-  - if [ "$(docker run jamesbrink/php -r 'echo phpversion(), PHP_EOL;')" != "7.1.15" ]; then exit 1;fi
+  - bash -c "make test"
