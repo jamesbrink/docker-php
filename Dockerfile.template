@@ -3,9 +3,17 @@
 # VERSION %s
 
 FROM alpine:3.7
-LABEL maintainer="James Brink, brink.james@gmail.com"
-LABEL decription="PHP %s with Apache"
-LABEL version="%s"
+
+ARG VCS_REF
+ARG BUILD_DATE
+
+LABEL maintainer="James Brink, brink.james@gmail.com" \
+      decription="PHP %s with Apache" \
+      version="%s" \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/jamesbrink/docker-php" \
+      org.label-schema.schema-version="1.0.0-rc1"
 
 COPY docker-assets/ /
 
