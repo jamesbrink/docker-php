@@ -8,6 +8,8 @@
 [![](https://images.microbadger.com/badges/image/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own version badge on microbadger.com")
 # Docker PHP container with Apache
+All images are based off of Alpine Linux 3.7 official docker image.  
+
 Docker PHP container with Apache (Very similar to official php image but added Apache server)
 
 This image is build using nearly the same build process as the official alpine-php image, with the exception of

@@ -42,7 +42,10 @@ RUN set -xe; \
         tar \
         xz \
         apache2 \
-        libressl; \
+        libressl \
+        libpcre16 \
+        libpcre32 \
+        libpcrecpp; \
     mkdir -p $PHP_INI_DIR/conf.d; \
     apk add --no-cache --virtual .fetch-deps gnupg; \
     mkdir -p /usr/src; \
@@ -76,6 +79,7 @@ RUN set -xe; \
         libressl-dev \
         libxml2-dev \
         sqlite-dev \
+        pcre-dev \
         apache2-dev; \
     export CFLAGS="$PHP_CFLAGS" \
         CPPFLAGS="$PHP_CPPFLAGS" \
@@ -96,6 +100,7 @@ RUN set -xe; \
         --with-libedit \
         --with-openssl \
         --with-zlib \
+        --with-pcre-regex=/usr \
         $(test "$gnuArch" = 's390x-linux-gnu' && echo '--without-pcre-jit') \
         $PHP_EXTRA_CONFIGURE_ARGS; \
     make -j "$(nproc)"; \
