@@ -48,9 +48,9 @@ Environment Variables:
 which by default prints to STDOUT. Refer to the [apache2 manual][apache2 manaual] for available LogLevels.
 
 [Alpine Linux Image]: https://github.com/gliderlabs/docker-alpine
-[7.2/Dockerfile]: https://github.com/jamesbrink/docker-php/tree/master/7.2
-[7.1/Dockerfile]: https://github.com/jamesbrink/docker-php/tree/master/7.1
-[7.0/Dockerfile]: https://github.com/jamesbrink/docker-php/tree/master/7.0
+[7.2/Dockerfile]: https://github.com/jamesbrink/docker-magento/blob/master/7.2/Dockerfile
+[7.1/Dockerfile]: https://github.com/jamesbrink/docker-magento/blob/master/7.1/Dockerfile
+[7.0/Dockerfile]: https://github.com/jamesbrink/docker-magento/blob/master/7.0/Dockerfile
 [official php-cli-alpine]: https://github.com/docker-library/php/blob/master/7.2/alpine3.7/cli/Dockerfile
 [JamesBrink/Magento2]: https://github.com/jamesbrink/docker-magento
 [apache2 manaual]: https://httpd.apache.org/docs/2.4/mod/core.html#loglevel
