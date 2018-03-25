@@ -1,15 +1,8 @@
-[Travis CI:  
-![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php)  
-
-[![Docker Automated build](https://img.shields.io/docker/automated/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
-[![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
-
-[![](https://images.microbadger.com/badges/image/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own version badge on microbadger.com")  
-
 # Minimal PHP/Apache Docker image built on Alpine Linux.
-<img src="https://alpinelinux.org/alpinelinux-logo.svg" width="250">
+
+[![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php) [![Docker Automated build](https://img.shields.io/docker/automated/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
+[![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/) [![](https://images.microbadger.com/badges/image/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own version badge on microbadger.com")  
 
 Available versions:
   * `jamesbrink/php:latest` (80MB) - PHP 7.2.3 [Dockerfile][7.2/Dockerfile]
