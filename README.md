@@ -1,16 +1,16 @@
-# Minimal PHP/Apache Docker image built on Alpine Linux.
+# Minimal PHP/Apache Docker image built on top of Alpine Linux.
 
-[![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php) [![Docker Automated build](https://img.shields.io/docker/automated/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
-[![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/) [![](https://images.microbadger.com/badges/image/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own version badge on microbadger.com")  
+[![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php) [![Docker Automated build](https://img.shields.io/docker/automated/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/) [![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/) [![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/) [![](https://images.microbadger.com/badges/image/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own version badge on microbadger.com")  
+
 
 Available versions:
-  * `jamesbrink/php:latest` (80MB) - PHP 7.2.3 [Dockerfile][7.2/Dockerfile]
-  * `jamesbrink/php:7.1`(72MB) - PHP 7.1.15 [Dockerfile][7.1/Dockerfile]
-  * `jamesbrink/php:7.0` (71MB) - PHP 7.0.28 [Dockerfile][7.0/Dockerfile]  
+  * `jamesbrink/php:latest` (80MB) - **PHP 7.2.3** ([Dockerfile][7.2/Dockerfile])
+  * `jamesbrink/php:7.1`(72MB) - **PHP 7.1.15** ([Dockerfile][7.1/Dockerfile])
+  * `jamesbrink/php:7.0` (71MB) - **PHP 7.0.28** ([Dockerfile][7.0/Dockerfile])  
 
 
 All images are based off of the official [Alpine Linux 3.7][Alpine Linux Image] image.
+
 
 ## About
 
@@ -21,10 +21,12 @@ and compiling PHP against the packaged version of **pcre**.
 
 Pull requests or suggestions are always welcome.
 
+
 ## Goals
 
 The primary goal of this container is to stay small and light weight, yet still useful for general use/consumption.
-This should serve as a solid base image and can be easily extended as I have done with my [Magento2 image][JamesBrink/Magento2] resulting in a very slim yet complete Magento2 container.  
+This should serve as a solid base image and can be easily extended as I have done with my [Magento2 image][JamesBrink/Magento2] resulting in a very slim yet complete Magento 2 container.  
+
 
 ## Usage Examples
 
@@ -41,11 +43,13 @@ COPY ./MyApp /var/www/localhost/htdocs/
 RUN apk add --update my-deps...
 ```
 
+
 ## Environment Variables
 
 Environment Variables:
 * APACHE_LOG_LEVEL - Default: "warn", adjusts the verbosity of the apache server  
 which by default prints to STDOUT. Refer to the [apache2 manual][apache2 manaual] for available LogLevels.
+
 
 [Alpine Linux Image]: https://github.com/gliderlabs/docker-alpine
 [7.2/Dockerfile]: https://github.com/jamesbrink/docker-magento/blob/master/7.2/Dockerfile
