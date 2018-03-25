@@ -1,5 +1,12 @@
 [Travis CI:  
-![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php)
+![Build Status](https://travis-ci.org/jamesbrink/docker-php.svg?branch=master)](https://travis-ci.org/jamesbrink/docker-php)  
+
+[![Docker Automated build](https://img.shields.io/docker/automated/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
+[![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
+
+[![](https://images.microbadger.com/badges/image/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own version badge on microbadger.com")
 # Docker PHP container with Apache
 Docker PHP container with Apache (Very similar to official php image but added Apache server)
 
