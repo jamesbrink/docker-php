@@ -5,8 +5,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
 [![Docker Stars](https://img.shields.io/docker/stars/jamesbrink/php.svg)](https://hub.docker.com/r/jamesbrink/php/)
 
-[![](https://images.microbadger.com/badges/image/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/jamesbrink/postgres.svg)](https://microbadger.com/images/jamesbrink/postgres "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/jamesbrink/php.svg)](https://microbadger.com/images/jamesbrink/php "Get your own version badge on microbadger.com")
 # Docker PHP container with Apache
 All images are based off of Alpine Linux 3.7 official docker image.  
 

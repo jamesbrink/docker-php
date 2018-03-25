@@ -10,6 +10,7 @@ ARG BUILD_DATE
 LABEL maintainer="James Brink, brink.james@gmail.com" \
       decription="PHP 7.2 with Apache" \
       version="7.2" \
+      org.label-schema.name="php" \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/jamesbrink/docker-php" \
