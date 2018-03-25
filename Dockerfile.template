@@ -38,15 +38,15 @@ ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
 # persistent / runtime deps
 RUN set -xe; \
     apk add --no-cache --virtual .persistent-deps \
+        apache2 \
         ca-certificates \
         curl \
-        tar \
-        xz \
-        apache2 \
-        libressl \
         libpcre16 \
         libpcre32 \
-        libpcrecpp; \
+        libpcrecpp \
+        libressl \
+        tar \
+        xz; \
     mkdir -p $PHP_INI_DIR/conf.d; \
     apk add --no-cache --virtual .fetch-deps gnupg; \
     mkdir -p /usr/src; \
@@ -65,23 +65,23 @@ RUN set -xe; \
     fi; \
     apk del .fetch-deps; \
     apk add --no-cache --virtual .build-deps \
+        apache2-dev \
         autoconf \
+        coreutils \
+        curl-dev \
         dpkg-dev dpkg \
         file \
         g++ \
         gcc \
         libc-dev \
-        make \
-        pkgconf \
-        re2c \
-        coreutils \
-        curl-dev \
         libedit-dev \
         libressl-dev \
         libxml2-dev \
-        sqlite-dev \
+        make \
         pcre-dev \
-        apache2-dev; \
+        pkgconf \
+        re2c \
+        sqlite-dev; \
     export CFLAGS="$PHP_CFLAGS" \
         CPPFLAGS="$PHP_CPPFLAGS" \
         LDFLAGS="$PHP_LDFLAGS"; \

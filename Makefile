@@ -14,32 +14,26 @@ PHP_7.0.28_SHA="e738ffce2c30bc0e84be9446af86bef0a0607d321f1a3d04bbfe2402fb5f6de0
 all: 7.2 7.1 7.0
 
 7.2:
-	rm -rf $(@)
 	mkdir -p $(@)
 	printf "`cat $(TEMPLATE)`" $(@) $(@) $(@) $(@) 7.2.3 7.2.3 7.2.3 $(PHP_7.2.3_SHA) > $(@)/Dockerfile
 	cp -rp docker-assets $(@)
 	cp -rp hooks $(@)
-	docker build -t $(NAME):$(@) --build-arg VCS_REF=`git rev-parse --short HEAD` \
- 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` $(@)
+	docker build -t $(NAME):$(@) $(@)
 	docker tag $(NAME):$(@) latest
 
 7.1:
-	rm -rf $(@)
 	mkdir -p $(@)
 	printf "`cat $(TEMPLATE)`" $(@) $(@) $(@) $(@) 7.1.15 7.1.15 7.1.15 $(PHP_7.1.15_SHA) > $(@)/Dockerfile
 	cp -rp docker-assets $(@)
 	cp -rp hooks $(@)
-	docker build -t $(NAME):$(@) --build-arg VCS_REF=`git rev-parse --short HEAD` \
- 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` $(@)
+	docker build -t $(NAME):$(@) $(@)
 
 7.0:
-	rm -rf $(@)
 	mkdir -p $(@)
 	printf "`cat $(TEMPLATE)`" $(@) $(@) $(@) $(@) 7.0.28 7.0.28 7.0.28 $(PHP_7.0.28_SHA) > $(@)/Dockerfile
 	cp -rp docker-assets $(@)
 	cp -rp hooks $(@)
-	docker build -t $(NAME):$(@) --build-arg VCS_REF=`git rev-parse --short HEAD` \
- 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` $(@)
+	docker build -t $(NAME):$(@) $(@)
 
 test: test-7.0 test-7.1 test-7.2
 
