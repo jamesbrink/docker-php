@@ -1,23 +1,25 @@
-# PHP 7.1 with Apache
-#
-# VERSION 7.1
-
 FROM alpine:3.7
 
+# Build ARGS
 ARG VCS_REF
 ARG BUILD_DATE
+ARG PHP_VERSION="7.1.15"
+ARG PHP_SHA256="0e17192fb43532e4ebaa190ecec9c7e59deea7dadb7dab67b19c2081a68bd817"
 
+# Labels and meta-data
 LABEL maintainer="James Brink, brink.james@gmail.com" \
-      decription="PHP 7.1 with Apache" \
-      version="7.1" \
+      decription="PHP ${PHP_VERSION}} with Apache" \
+      version="${PHP_VERSION}" \
       org.label-schema.name="php" \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/jamesbrink/docker-php" \
       org.label-schema.schema-version="1.0.0-rc1"
 
+# Copy in our assets.
 COPY docker-assets/ /
 
+# Set our ENV variables.
 ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
     PHP_CPPFLAGS="$PHP_CFLAGS" \
     PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
@@ -27,11 +29,10 @@ ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
               528995BFEDFBA7191D46839EF9BA0ADA31CBD89E \
               1729F83938DA44E27BA0F4D3DBDB397470D12172 \
               B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F" \
-    PHP_VERSION="7.1.15" \
-    PHP_URL="https://secure.php.net/get/php-7.1.15.tar.xz/from/this/mirror" \
-    PHP_ASC_URL="https://secure.php.net/get/php-7.1.15.tar.xz.asc/from/this/mirror" \
-    PHP_SHA256="0e17192fb43532e4ebaa190ecec9c7e59deea7dadb7dab67b19c2081a68bd817" \
-    PHP_MD5="" \
+    PHP_VERSION="${PHP_VERSION}" \
+    PHP_URL="https://secure.php.net/get/php-${PHP_VERSION}.tar.xz/from/this/mirror" \
+    PHP_ASC_URL="https://secure.php.net/get/php-${PHP_VERSION}.tar.xz.asc/from/this/mirror" \
+    PHP_SHA256="${PHP_SHA256}" \
     PHP_INI_DIR="/usr/local/etc/php" \
     APACHE_LOG_LEVEL="warn"
 
