@@ -2,8 +2,6 @@
 NAME=jamesbrink/php
 TEMPLATE=Dockerfile.template
 DOCKER_COMPOSE_TEMPLATE=docker-compose.template
-# This is to assist with building on MAC OSX
-SED:=$(shell [[ `command -v gsed` ]] && echo gsed || echo sed)
 .PHONY: test all clean 7.2 7.1 7.0 test-7.2 test-7.1 test-7.0
 .DEFAULT_GOAL := 7.2
 
@@ -20,8 +18,8 @@ all: 7.2 7.1 7.0
 	cp -rp hooks $(@)
 	cp Dockerfile.template $(@)/Dockerfile
 	cp .dockerignore $(@)/.dockerignore
-	SED -ir 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.2.3"/g' $(@)/Dockerfile
-	SED -ir 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.2.3_SHA)/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.2.3"/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.2.3_SHA)/g' $(@)/Dockerfile
 	cd $(@) && PHP_VERSION="7.2.3" PHP_SHA256=$(PHP_7.2.3_SHA) IMAGE_NAME=$(NAME):$(@) ./hooks/build
 	docker tag $(NAME):$(@) $(NAME):latest
 
@@ -31,8 +29,8 @@ all: 7.2 7.1 7.0
 	cp -rp hooks $(@)
 	cp Dockerfile.template $(@)/Dockerfile
 	cp .dockerignore $(@)/.dockerignore
-	SED -ir 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.1.15"/g' $(@)/Dockerfile
-	SED -ir 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.1.15_SHA)/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.1.15"/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.1.15_SHA)/g' $(@)/Dockerfile
 	cd $(@) && PHP_VERSION="7.1.15" PHP_SHA256=$(PHP_7.1.15_SHA) IMAGE_NAME=$(NAME):$(@) ./hooks/build
 
 7.0:
@@ -41,8 +39,8 @@ all: 7.2 7.1 7.0
 	cp -rp hooks $(@)
 	cp Dockerfile.template $(@)/Dockerfile
 	cp .dockerignore $(@)/.dockerignore
-	SED -ir 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.0.28"/g' $(@)/Dockerfile
-	SED -ir 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.0.28_SHA)/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_VERSION.*/ARG PHP_VERSION="7.0.28"/g' $(@)/Dockerfile
+	sed -i -r 's/ARG PHP_SHA256.*/ARG PHP_SHA256=$(PHP_7.0.28_SHA)/g' $(@)/Dockerfile
 	cd $(@) && PHP_VERSION="7.0.28" PHP_SHA256=$(PHP_7.0.28_SHA) IMAGE_NAME=$(NAME):$(@) ./hooks/build
 
 test: test-7.0 test-7.1 test-7.2
