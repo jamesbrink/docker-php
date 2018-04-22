@@ -2,8 +2,6 @@
 
 echo "Build hook running"
 echo "Building $IMAGE_NAME"
-docker build --build-arg PHP_VERSION="$PHP_VERSION" \
-	--build-arg PHP_SHA256="$PHP_SHA256" \
-	--build-arg BUILD_DATE="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+docker build --build-arg BUILD_DATE="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
 	--build-arg VCS_REF="$(git rev-parse --short HEAD)" \
 	-t "$IMAGE_NAME" .
