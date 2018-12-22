@@ -38,7 +38,7 @@ ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
 
 # persistent / runtime deps
 RUN set -xe; \
-    apk add --no-cache --virtual .persistent-deps \
+    apk add --update --no-cache --virtual .persistent-deps \
         apache2 \
         ca-certificates \
         curl \
@@ -47,9 +47,11 @@ RUN set -xe; \
         libpcrecpp \
         libressl \
         tar \
+        wget \
         xz; \
+    update-ca-certificates; \
     mkdir -p $PHP_INI_DIR/conf.d; \
-    apk add --no-cache --virtual .fetch-deps gnupg; \
+    apk add --update --no-cache --virtual .fetch-deps gnupg; \
     mkdir -p /usr/src; \
     cd /usr/src; \
     wget -O php.tar.xz "$PHP_URL"; \
@@ -65,7 +67,7 @@ RUN set -xe; \
         rm -rf "$GNUPGHOME"; \
     fi; \
     apk del .fetch-deps; \
-    apk add --no-cache --virtual .build-deps \
+    apk add --update --no-cache --virtual .build-deps \
         apache2-dev \
         autoconf \
         coreutils \
@@ -117,7 +119,7 @@ RUN set -xe; \
       	| sort -u \
       	| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
     )"; \
-    apk add --no-cache --virtual .php-rundeps $runDeps; \
+    apk add --update --no-cache --virtual .php-rundeps $runDeps; \
     apk del .build-deps; \
     pecl update-channels; \
     rm -rf /tmp/pear ~/.pearrc; \

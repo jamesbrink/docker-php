@@ -2,8 +2,9 @@
 NAME=jamesbrink/php
 TEMPLATE=Dockerfile.template
 DOCKER_COMPOSE_TEMPLATE=docker-compose.template
-.PHONY: test all clean 7.2 7.1 7.0 test-7.2 test-7.1 test-7.0
+.PHONY: test all clean latest 7.2 7.1 7.0 test-7.2 test-7.1 test-7.0
 .DEFAULT_GOAL := latest
+SHELL=/usr/bin/env bash
 
 # Verification SHAs
 PHP_7.2.3_SHA="b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
